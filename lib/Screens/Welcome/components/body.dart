@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_auth/Screens/Login/login_screen.dart';
-import 'package:flutter_auth/Screens/Signup/signup_screen.dart';
 import 'package:flutter_auth/Screens/Welcome/components/background.dart';
 import 'package:flutter_auth/components/rounded_button.dart';
 import 'package:flutter_auth/constants.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class Body extends StatelessWidget {
 
@@ -35,7 +33,7 @@ class Body extends StatelessWidget {
               Buttons.Google,
                 padding: EdgeInsets.symmetric(vertical: 20, horizontal: 40),
                 
-              text: "Sign up with Google",
+              text: "Continue with Google",
               onPressed: () {}
             ),
             RoundedButton(

@@ -9,11 +9,13 @@ import 'package:flutter_svg/svg.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter_auth/Screens/homepage.dart';
 
-class Body extends StatelessWidget {
+// ignore: must_be_immutable
+class Login extends StatelessWidget {
   String email;
   String password;
-
 
   @override
   Widget build(BuildContext context) {
@@ -60,6 +62,12 @@ class Body extends StatelessWidget {
                 var data = json.decode(response.body);
                 print("sent from server::");
                 print(data);
+                SharedPreferences prefs = await SharedPreferences.getInstance();
+                prefs.setString('email', email);
+                prefs.setString('token', data['token']);
+
+                Navigator.pushReplacement(context,
+                    MaterialPageRoute(builder: (BuildContext ctx) => HomePage()));
               },
             ),
             SizedBox(height: size.height * 0.03),
