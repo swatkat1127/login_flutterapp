@@ -9,6 +9,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:flutter_auth/Screens/homepage.dart';
 
 
 
@@ -58,6 +59,7 @@ class Body extends StatelessWidget {
               text: "SIGNUP",
               press: () async {
                 String signUpURL = env['baseUrl']+'/auth/register/';
+                print(signUpURL);
                 var response = await http.post(
                   signUpURL,
                   headers: {"Accept": "application/json"},
@@ -66,6 +68,8 @@ class Body extends StatelessWidget {
                 var data = json.decode(response.body);
                 print("sent from server::");
                 print(data);
+                Navigator.push(context,
+                 MaterialPageRoute(builder: (BuildContext ctx) => HomePage()));
               },
             ),
             SizedBox(height: size.height * 0.03),

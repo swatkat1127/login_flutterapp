@@ -61,7 +61,7 @@ class Login extends StatelessWidget {
                 );
                 var data = json.decode(response.body);
                 print("sent from server::");
-                print(data);
+                print(data);// to check data
                 SharedPreferences prefs = await SharedPreferences.getInstance();
                 prefs.setString('email', email);
                 prefs.setString('token', data['token']);
