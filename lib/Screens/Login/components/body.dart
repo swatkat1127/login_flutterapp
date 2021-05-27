@@ -66,7 +66,7 @@ class Login extends StatelessWidget {
                 prefs.setString('email', email);
                 prefs.setString('token', data['token']);
 
-                Navigator.pushReplacement(context,
+                Navigator.push(context,
                     MaterialPageRoute(builder: (BuildContext ctx) => HomePage()));
               },
             ),

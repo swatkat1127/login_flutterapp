@@ -29,11 +29,13 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
     setState(() {
       var token = sharedPreferences.getString("token");
       if (token != null) {
-        Navigator.pushReplacement(context,
-            MaterialPageRoute(builder: (BuildContext ctx) => HomePage()));
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) {return HomePage();})
+        );
       } else {
         return;
       }
     });
   }
 }
+
